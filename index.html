@@ -468,6 +468,16 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
             if(!userHasToggledSound){
                userHasToggledSound = true;
                video.currentTime = 0;
+			   try {
+					if (video.paused) {
+						console.log("Video forced pause")
+						document.querySelector('.js-audio').classList.remove('playing');
+						document.querySelector('.js-audio').classList.add('paused');
+					} 
+				}
+				catch(err) {
+					console.log("My error =>", err);
+				}
             }
             soundControl.src = video.muted ? muteIcon : soundOnIcon;
             let soundAction = video.muted ? 'video-muted' : 'video-unmuted';
@@ -476,7 +486,6 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
 
          // Functions from script.js start
          soundControl.addEventListener('mouseover', function(){
-            console.log("MOUSE OVERRRRR")
             video.muted = !video.muted;
             videoIsMuted = video.muted;
             changeBarsColor();
@@ -485,6 +494,16 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
             if(!userHasToggledSound){
                userHasToggledSound = true;
                video.currentTime = 0;
+			   try {
+					if (video.paused) {
+						console.log("Video forced pause")
+						document.querySelector('.js-audio').classList.remove('playing');
+						document.querySelector('.js-audio').classList.add('paused');
+					} 
+				}
+				catch(err) {
+					console.log("My error =>", err);
+				}
             }
             soundControl.src = video.muted ? muteIcon : soundOnIcon;
             let soundAction = video.muted ? 'video-muted' : 'video-unmuted';
